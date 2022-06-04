@@ -22,9 +22,9 @@ class Movie(models.Model):
     def __str__(self):
         return "Film: " + self.title
         
-        
-    class Director(models.Model):
-        first_name = models.CharField(verbose_name="imię", max_length=100)
+
+class Director(models.Model):
+    first_name = models.CharField(verbose_name="imię", max_length=100)
     last_name = models.CharField(verbose_name="nazwisko", max_length=100)
     about = models.TextField(verbose_name="o reżyserze", blank=True)
     photo = models.ImageField(verbose_name="zdjęcie", blank=True)
@@ -33,6 +33,6 @@ class Movie(models.Model):
         ordering = ["last_name", "first_name"]
         verbose_name = "reżyser"
         verbose_name_plural = "reżyserzy"
-
+        
     def __str__(self):
         return "Reżyser: " + self.first_name + " " + self.last_name
